@@ -1,0 +1,193 @@
+<dom-module id="pl-data-course">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+  </template>
+  <script>
+    (function() {
+
+      var chapters = {
+        storia1Elem: [
+          {
+            chapterId: "capitolo1",
+            name: "Capitolo 1"
+          },
+          {
+            chapterId: "capitolo2",
+            name: "Capitolo 2"
+          },
+          {
+            chapterId: "capitolo3",
+            name: "Capitolo 3"
+          },
+          {
+            chapterId: "capitolo4",
+            name: "Capitolo 4"
+          },
+          {
+            chapterId: "capitolo5",
+            name: "Capitolo 5"
+          },
+          {
+            chapterId: "capitolo6",
+            name: "Capitolo 6"
+          }
+        ],
+        italiano1Elem: [
+          {
+            chapterId: "capitolo1",
+            name: "Capitolo 1"
+          },
+          {
+            chapterId: "capitolo2",
+            name: "Capitolo 2"
+          },
+          {
+            chapterId: "capitolo3",
+            name: "Capitolo 3"
+          },
+          {
+            chapterId: "capitolo4",
+            name: "Capitolo 4"
+          },
+          {
+            chapterId: "capitolo5",
+            name: "Capitolo 5"
+          },
+          {
+            chapterId: "capitolo6",
+            name: "Capitolo 6"
+          }
+        ],
+        geografia1Elem: [
+          {
+            chapterId: "capitolo1",
+            name: "Capitolo 1"
+          },
+          {
+            chapterId: "capitolo2",
+            name: "Capitolo 2"
+          },
+          {
+            chapterId: "capitolo3",
+            name: "Capitolo 3"
+          },
+          {
+            chapterId: "capitolo4",
+            name: "Capitolo 4"
+          },
+          {
+            chapterId: "capitolo5",
+            name: "Capitolo 5"
+          },
+          {
+            chapterId: "capitolo6",
+            name: "Capitolo 6"
+          }
+        ],
+        matematica1Elem: [
+          {
+            chapterId: "capitolo1",
+            name: "Capitolo 1"
+          },
+          {
+            chapterId: "capitolo2",
+            name: "Capitolo 2"
+          },
+          {
+            chapterId: "capitolo3",
+            name: "Capitolo 3"
+          },
+          {
+            chapterId: "capitolo4",
+            name: "Capitolo 4"
+          },
+          {
+            chapterId: "capitolo5",
+            name: "Capitolo 5"
+          },
+          {
+            chapterId: "capitolo6",
+            name: "Capitolo 6"
+          }
+        ],
+        scienze1Elem: [
+          {
+            chapterId: "capitolo1",
+            name: "Capitolo 1"
+          },
+          {
+            chapterId: "capitolo2",
+            name: "Capitolo 2"
+          },
+          {
+            chapterId: "capitolo3",
+            name: "Capitolo 3"
+          },
+          {
+            chapterId: "capitolo4",
+            name: "Capitolo 4"
+          },
+          {
+            chapterId: "capitolo5",
+            name: "Capitolo 5"
+          },
+          {
+            chapterId: "capitolo6",
+            name: "Capitolo 6"
+          }
+        ],
+        musica1Elem: [
+          {
+            chapterId: "capitolo1",
+            name: "Capitolo 1"
+          },
+          {
+            chapterId: "capitolo2",
+            name: "Capitolo 2"
+          },
+          {
+            chapterId: "capitolo3",
+            name: "Capitolo 3"
+          },
+          {
+            chapterId: "capitolo4",
+            name: "Capitolo 4"
+          },
+          {
+            chapterId: "capitolo5",
+            name: "Capitolo 5"
+          },
+          {
+            chapterId: "capitolo6",
+            name: "Capitolo 6"
+          }
+        ]
+      }
+
+      Polymer({
+        is: 'pl-data-course',
+        properties: {
+          courseId: {
+            type: String,
+            observer: '_setChapters'
+          },
+          chapters: {
+            type: Array,
+            notify: true
+          }
+        },
+
+        _setChapters: function() {
+          if (this.courseId) {
+            this.chapters = chapters[this.courseId];
+          }
+        }
+      });
+    })()
+  </script>
+</dom-module>

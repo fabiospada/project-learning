@@ -71,12 +71,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </section>
 
       <section data-route="course">
-        <pl-data-course courseId="{{params.courseId}}" course="{{course}}"></pl-data-course>
-        <pl-view-course course="{{course}}"></pl-view-course>
+        <pl-data-course course-id="storia1Elem" chapters="{{chapters}}"></pl-data-course>
+        <pl-view-course course-id="{{params.courseId}}" chapters="{{chapters}}"></pl-view-course>
       </section>
 
       <section data-route="chapter">
-        <pl-data-chapter courseId="{{params.courseId}}" chapterId="params.chapterId" chapter="{{chapter}}"></pl-data-chapter>
+        <pl-data-chapter course-id="{{params.courseId}}" chapter-id="{{params.chapterId}}" chapter="{{chapter}}"></pl-data-chapter>
         <pl-view-chapter chapter="{{chapter}}"></pl-view-chapter>
       </section>
 

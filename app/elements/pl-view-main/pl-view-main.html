@@ -16,8 +16,9 @@
       </paper-toolbar>
       <div class="horizontal layout wrap" style="padding: 12px;">
         <template is="dom-repeat" items="{{courses}}">
-          <a href="{{_computeLink(item.couseId)}}">
-          <paper-card heading="{{item.name}}" image="{{item.image}}" style="width: 420px; height: 280px;"></paper-card>
+          <a href="{{_computeLink(item.courseId)}}">
+            <paper-card heading="{{item.name}}" image="{{item.image}}" style="width: 420px; height: 280px;"></paper-card>
+          </a>
         </template>
       </div>
     </paper-header-panel>
