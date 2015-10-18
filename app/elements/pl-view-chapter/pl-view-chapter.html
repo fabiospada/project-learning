@@ -1,0 +1,94 @@
+<dom-module id="pl-view-chapter">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .list {
+        padding: 0;
+        border-right: 1px solid #ccc;
+      }
+
+      .list paper-item {
+        height: 80px;
+        border-bottom: 1px solid #dedede;
+        background-color: #fafafa;
+      }
+
+      paper-material {
+        height: 1400px;
+        background-color: #fff;
+        max-width: 640px;
+        margin: 64px auto;
+      }
+
+      iron-icon {
+        margin-right: 16px;
+      }
+    </style>
+
+    <paper-drawer-panel id="drawerPanel" responsive-width="1024px" drawer-width="320px">
+
+      <paper-header-panel class="list-panel" drawer mode="seamed">
+
+        <paper-toolbar class="tall"></paper-toolbar>
+
+        <paper-menu class="list" on-iron-activate="_listTap">
+          <template is="dom-repeat" items="{{steps}}">
+            <paper-item>
+              <iron-icon icon="{{_computeIcon(item.type)}}" item-icon></iron-icon> <span>{{item.name}}</span>
+            </paper-item>
+          </template>
+        </paper-menu>
+
+      </paper-header-panel>
+
+      <paper-header-panel main mode="cover">
+
+        <paper-toolbar class="tall"></paper-toolbar>
+
+        <div class="content">
+
+          <paper-material>
+            <!-- Card Content -->
+          </paper-material>
+
+        </div>
+
+      </paper-header-panel>
+
+    </paper-drawer-panel>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'pl-view-chapter',
+      properties: {
+        courseId: {
+          type: String
+        },
+        chapterId: {
+          type: String
+        },
+        steps: {
+          type: Array
+        }
+      },
+
+      _listTap: function() {
+        this.$.drawerPanel.closeDrawer();
+      },
+
+      _computeIcon: function(type) {
+        switch (type) {
+          case 'text': return 'book';
+          case 'video': return 'av:play-arrow';
+          case 'exercise': return 'check-box';
+          default:
+
+        }
+      }
+    });
+  </script>
+</dom-module>

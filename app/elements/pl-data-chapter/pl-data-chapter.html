@@ -1,0 +1,174 @@
+<dom-module id="pl-data-chapter">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+  </template>
+  <script>
+    (function() {
+
+      var steps = {
+        storia1Elem: {
+          capitolo1: [
+            {
+              name: "Introduzione",
+              description: "Introduzione al capitolo 1 di storia",
+              type: "video"
+            },
+            {
+              name: "Paragrafo 1",
+              type: "text"
+            },
+            {
+              name: "Esercizio 1",
+              description: "Esercizi riguardanti il primo paragrafo",
+              type: "exercise",
+              exercises: [
+                {
+                  type: "open",
+                  question: "Donec non nibh eu dolor?",
+                },
+                {
+                  type: "multi",
+                  question: "Curabitur vulputate nulla non diam?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                },
+                {
+                  type: "single",
+                  question: "Praesent id velit id purus.?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                }
+              ]
+            },
+            {
+              name: "Paragrafo 2",
+              type: "text"
+            },
+            {
+              name: "Esercizio 2",
+              description: "Esercizi riguardanti il secondo paragrafo",
+              type: "exercise",
+              exercises: [
+                {
+                  type: "open",
+                  question: "Donec non nibh eu dolor?",
+                },
+                {
+                  type: "multi",
+                  question: "Curabitur vulputate nulla non diam?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                },
+                {
+                  type: "single",
+                  question: "Praesent id velit id purus.?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                }
+              ]
+            },
+            {
+              name: "Paragrafo 3",
+              type: "text"
+            },
+            {
+              name: "Esercizio 3",
+              description: "Esercizi riguardanti il terzo paragrafo",
+              type: "exercise",
+              exercises: [
+                {
+                  type: "open",
+                  question: "Donec non nibh eu dolor?",
+                },
+                {
+                  type: "multi",
+                  question: "Curabitur vulputate nulla non diam?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                },
+                {
+                  type: "single",
+                  question: "Praesent id velit id purus.?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                }
+              ]
+            },
+            {
+              name: "Verifica",
+              description: "Verifica finale del primo capitolo",
+              type: "exercise",
+              exercises: [
+                {
+                  type: "open",
+                  question: "Donec non nibh eu dolor?",
+                },
+                {
+                  type: "multi",
+                  question: "Curabitur vulputate nulla non diam?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                },
+                {
+                  type: "single",
+                  question: "Praesent id velit id purus.?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                },
+                {
+                  type: "open",
+                  question: "Donec non nibh eu dolor?",
+                },
+                {
+                  type: "multi",
+                  question: "Curabitur vulputate nulla non diam?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                },
+                {
+                  type: "single",
+                  question: "Praesent id velit id purus.?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                },
+                {
+                  type: "open",
+                  question: "Donec non nibh eu dolor?",
+                },
+                {
+                  type: "multi",
+                  question: "Curabitur vulputate nulla non diam?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                },
+                {
+                  type: "single",
+                  question: "Praesent id velit id purus.?",
+                  options: ["Sed ut purus cursus", "Vestibulum suscipit", "Integer id ipsum", "Vivamus condimentum"]
+                }
+              ]
+            }
+          ]
+        }
+      }
+
+      Polymer({
+        is: 'pl-data-chapter',
+        properties: {
+          courseId: {
+            type: String,
+            observer: '_setSteps'
+          },
+          chapterId: {
+            type: String,
+            observer: '_setSteps'
+          },
+          steps: {
+            type: Array,
+            notify: true
+          }
+        },
+
+        _setSteps: function() {
+          if (this.courseId && this.chapterId) {
+            this.steps = steps[this.courseId][this.chapterId];
+          }
+        }
+      });
+    })();
+  </script>
+</dom-module>
