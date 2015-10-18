@@ -17,7 +17,6 @@
       }
 
       paper-material {
-        height: 1400px;
         background-color: #fff;
         max-width: 640px;
         margin: 64px auto;
@@ -25,6 +24,10 @@
 
       iron-icon {
         margin-right: 16px;
+      }
+
+      paper-checkbox {
+        padding: 12px;
       }
     </style>
 
@@ -34,9 +37,9 @@
 
         <paper-toolbar class="tall"></paper-toolbar>
 
-        <paper-menu class="list" on-iron-activate="_listTap">
+        <paper-menu class="list">
           <template is="dom-repeat" items="{{steps}}">
-            <paper-item>
+            <paper-item on-tap="_itemTap">
               <iron-icon icon="{{_computeIcon(item.type)}}" item-icon></iron-icon> <span>{{item.name}}</span>
             </paper-item>
           </template>
@@ -50,9 +53,66 @@
 
         <div class="content">
 
-          <paper-material>
-            <!-- Card Content -->
-          </paper-material>
+          <template is="dom-if" if="{{selectedStep}}">
+            <paper-material>
+              <template is="dom-if" if="{{_computeIsText(selectedStep.type)}}">
+                <iron-image src="/images/image.jpg"></iron-image>
+                <div style="padding: 16px;">
+                  <div class="paper-font-title">{{selectedStep.name}}</div>
+                  <div class="paper-font-subhead">{{selectedStep.description}}</div>
+                  <p class="paper-font-body1">Donec eget ipsum mi. Praesent vitae hendrerit tellus. Fusce rhoncus ex at nisi mattis, ac cursus lorem placerat. Donec malesuada metus risus, nec commodo erat sagittis ac. Sed in consequat libero. Praesent gravida lacus ut pharetra congue. Nulla faucibus, enim et euismod tincidunt, odio diam suscipit augue, at sodales lacus purus sed nisi. Praesent a imperdiet lectus. Nulla facilisi.</p>
+                  <p class="paper-font-body1">Vivamus nibh nisl, ultrices non dignissim in, commodo at nunc. Quisque quis enim dolor. Etiam mi orci, luctus quis ullamcorper at, maximus ac ex. Donec elementum tristique augue a egestas. Ut a magna enim. Aliquam sagittis aliquam dolor a feugiat. Curabitur at interdum turpis.</p>
+                  <p class="paper-font-body1">Nam elementum bibendum leo. Phasellus elementum non ipsum vel vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed maximus convallis urna at viverra. Sed ut ligula in tellus bibendum malesuada eu pulvinar sapien. Nunc luctus odio eros, sit amet blandit nulla faucibus in. Proin pellentesque est non aliquet convallis. Suspendisse ac mauris pellentesque, mattis mi et, accumsan enim. Nulla velit ligula, condimentum sit amet nisi quis, ultrices mattis neque. Nullam vitae metus pharetra felis tristique tincidunt. Curabitur pulvinar bibendum ullamcorper.</p>
+                  <p class="paper-font-body1">Nam pharetra eros nec ligula tristique, vestibulum imperdiet lacus molestie. Suspendisse pellentesque est mauris, ac posuere nunc lacinia vel. Nulla sit amet varius arcu, id consequat mauris. Vestibulum vestibulum tempor tellus, eu ultricies lacus gravida quis. Donec et dolor sed odio imperdiet pharetra. Nunc ante enim, malesuada in lacus et, aliquet mollis sem. Pellentesque a ante vel tortor placerat iaculis.</p>
+                  <p class="paper-font-body1">Vivamus accumsan scelerisque augue eu pellentesque. Curabitur interdum sed arcu vitae aliquam. Sed nec condimentum ante. Nam rhoncus urna sit amet mauris luctus semper. Praesent malesuada libero lacus, sit amet imperdiet velit dapibus finibus. Fusce dictum, risus nec ultrices vestibulum, sem diam tristique arcu, eget fringilla massa dolor id augue. Vivamus eget tincidunt velit, rutrum finibus magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                  <p class="paper-font-body1">Donec eget ipsum mi. Praesent vitae hendrerit tellus. Fusce rhoncus ex at nisi mattis, ac cursus lorem placerat. Donec malesuada metus risus, nec commodo erat sagittis ac. Sed in consequat libero. Praesent gravida lacus ut pharetra congue. Nulla faucibus, enim et euismod tincidunt, odio diam suscipit augue, at sodales lacus purus sed nisi. Praesent a imperdiet lectus. Nulla facilisi.</p>
+                  <p class="paper-font-body1">Vivamus nibh nisl, ultrices non dignissim in, commodo at nunc. Quisque quis enim dolor. Etiam mi orci, luctus quis ullamcorper at, maximus ac ex. Donec elementum tristique augue a egestas. Ut a magna enim. Aliquam sagittis aliquam dolor a feugiat. Curabitur at interdum turpis.</p>
+                  <p class="paper-font-body1">Nam elementum bibendum leo. Phasellus elementum non ipsum vel vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed maximus convallis urna at viverra. Sed ut ligula in tellus bibendum malesuada eu pulvinar sapien. Nunc luctus odio eros, sit amet blandit nulla faucibus in. Proin pellentesque est non aliquet convallis. Suspendisse ac mauris pellentesque, mattis mi et, accumsan enim. Nulla velit ligula, condimentum sit amet nisi quis, ultrices mattis neque. Nullam vitae metus pharetra felis tristique tincidunt. Curabitur pulvinar bibendum ullamcorper.</p>
+                  <p class="paper-font-body1">Nam pharetra eros nec ligula tristique, vestibulum imperdiet lacus molestie. Suspendisse pellentesque est mauris, ac posuere nunc lacinia vel. Nulla sit amet varius arcu, id consequat mauris. Vestibulum vestibulum tempor tellus, eu ultricies lacus gravida quis. Donec et dolor sed odio imperdiet pharetra. Nunc ante enim, malesuada in lacus et, aliquet mollis sem. Pellentesque a ante vel tortor placerat iaculis.</p>
+                  <p class="paper-font-body1">Vivamus accumsan scelerisque augue eu pellentesque. Curabitur interdum sed arcu vitae aliquam. Sed nec condimentum ante. Nam rhoncus urna sit amet mauris luctus semper. Praesent malesuada libero lacus, sit amet imperdiet velit dapibus finibus. Fusce dictum, risus nec ultrices vestibulum, sem diam tristique arcu, eget fringilla massa dolor id augue. Vivamus eget tincidunt velit, rutrum finibus magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                  <p class="paper-font-body1">Donec eget ipsum mi. Praesent vitae hendrerit tellus. Fusce rhoncus ex at nisi mattis, ac cursus lorem placerat. Donec malesuada metus risus, nec commodo erat sagittis ac. Sed in consequat libero. Praesent gravida lacus ut pharetra congue. Nulla faucibus, enim et euismod tincidunt, odio diam suscipit augue, at sodales lacus purus sed nisi. Praesent a imperdiet lectus. Nulla facilisi.</p>
+                  <p class="paper-font-body1">Vivamus nibh nisl, ultrices non dignissim in, commodo at nunc. Quisque quis enim dolor. Etiam mi orci, luctus quis ullamcorper at, maximus ac ex. Donec elementum tristique augue a egestas. Ut a magna enim. Aliquam sagittis aliquam dolor a feugiat. Curabitur at interdum turpis.</p>
+                  <p class="paper-font-body1">Nam elementum bibendum leo. Phasellus elementum non ipsum vel vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed maximus convallis urna at viverra. Sed ut ligula in tellus bibendum malesuada eu pulvinar sapien. Nunc luctus odio eros, sit amet blandit nulla faucibus in. Proin pellentesque est non aliquet convallis. Suspendisse ac mauris pellentesque, mattis mi et, accumsan enim. Nulla velit ligula, condimentum sit amet nisi quis, ultrices mattis neque. Nullam vitae metus pharetra felis tristique tincidunt. Curabitur pulvinar bibendum ullamcorper.</p>
+                  <p class="paper-font-body1">Nam pharetra eros nec ligula tristique, vestibulum imperdiet lacus molestie. Suspendisse pellentesque est mauris, ac posuere nunc lacinia vel. Nulla sit amet varius arcu, id consequat mauris. Vestibulum vestibulum tempor tellus, eu ultricies lacus gravida quis. Donec et dolor sed odio imperdiet pharetra. Nunc ante enim, malesuada in lacus et, aliquet mollis sem. Pellentesque a ante vel tortor placerat iaculis.</p>
+                  <p class="paper-font-body1">Vivamus accumsan scelerisque augue eu pellentesque. Curabitur interdum sed arcu vitae aliquam. Sed nec condimentum ante. Nam rhoncus urna sit amet mauris luctus semper. Praesent malesuada libero lacus, sit amet imperdiet velit dapibus finibus. Fusce dictum, risus nec ultrices vestibulum, sem diam tristique arcu, eget fringilla massa dolor id augue. Vivamus eget tincidunt velit, rutrum finibus magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                </div>
+              </template>
+              <template is="dom-if" if="{{_computeIsVideo(selectedStep.type)}}">
+                <iron-image src="/images/video.png"></iron-image>
+                <div style="padding: 16px;">
+                  <div class="paper-font-title">{{selectedStep.name}}</div>
+                  <div class="paper-font-subhead">{{selectedStep.description}}</div>
+                </div>
+              </template>
+              <template is="dom-if" if="{{_computeIsExercise(selectedStep.type)}}">
+                <div style="padding: 16px;">
+                  <div class="paper-font-title">{{selectedStep.name}}</div>
+                  <div class="paper-font-subhead">{{selectedStep.description}}</div>
+
+                  <template is="dom-repeat" items="{{selectedStep.exercises}}" as="exercise">
+                    <div class="paper-font-body2" style="margin-top: 24px;">{{exercise.question}}</div>
+                    <template is="dom-if" if="{{_computeIsOpenQuestion(exercise.type)}}">
+                      <paper-input></paper-input>
+                    </template>
+                    <template is="dom-if" if="{{_computeIsMultipleResponse(exercise.type)}}">
+                      <div class="vertical layout">
+                        <template is="dom-repeat" items="{{exercise.options}}" as="option">
+                          <paper-checkbox>{{option}}</paper-checkbox>
+                        </template>
+                      </div>
+                    </template>
+                    <template is="dom-if" if="{{_computeIsSingleResponse(exercise.type)}}">
+                      <paper-radio-group class="vertical layout">
+                        <template is="dom-repeat" items="{{exercise.options}}" as="option">
+                          <paper-radio-button name="{{option}}">{{option}}</paper-radio-button>
+                        </template>
+                      </paper-radio-group>
+                    </template>
+                  </template>
+                </div>
+              </template>
+            </paper-material>
+          </template>
 
         </div>
 
@@ -65,19 +125,16 @@
     Polymer({
       is: 'pl-view-chapter',
       properties: {
-        courseId: {
-          type: String
-        },
-        chapterId: {
-          type: String
-        },
-        steps: {
-          type: Array
-        }
+        courseId: String,
+        chapterId: String,
+        steps: Array,
+        selectedStep: Object
       },
 
-      _listTap: function() {
-        this.$.drawerPanel.closeDrawer();
+      _itemTap: function(event) {
+        var step = event.model.item;
+
+        this.selectedStep = step;
       },
 
       _computeIcon: function(type) {
@@ -88,6 +145,30 @@
           default:
 
         }
+      },
+
+      _computeIsText: function(type) {
+        return type === 'text';
+      },
+
+      _computeIsVideo: function(type) {
+        return type === 'video';
+      },
+
+      _computeIsExercise: function(type) {
+        return type === 'exercise';
+      },
+
+      _computeIsOpenQuestion: function(type) {
+        return type === 'open';
+      },
+
+      _computeIsSingleResponse: function(type) {
+        return type === 'single';
+      },
+
+      _computeIsMultipleResponse: function(type) {
+        return type === 'multi';
       }
     });
   </script>
