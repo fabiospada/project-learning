@@ -11,8 +11,9 @@
     </style>
 
     <paper-header-panel class="flex fit">
-      <paper-toolbar class="medium-tall">
-        <div>Hello World!</div>
+      <paper-toolbar class="horizontal layout center" style="height: 128px;">
+        <iron-image src="/images/avatar.jpg" sizing="contain" style="width: 64px; height: 64px; border-radius: 32px; margin: 0 24px;"></iron-image>
+        <div class="paper-font-display2">Mario Rossi</div>
       </paper-toolbar>
       <div class="horizontal layout wrap" style="padding: 12px;">
         <template is="dom-repeat" items="{{courses}}">

@@ -11,13 +11,14 @@
     </style>
 
     <paper-header-panel class="flex fit">
-      <paper-toolbar class="medium-tall">
-        <div>Hello World!</div>
+      <paper-toolbar class="horizontal layout center" style="height: 128px;">
+        <iron-image src="/images/avatar.jpg" sizing="contain" style="width: 64px; height: 64px; border-radius: 32px; margin: 0 24px;"></iron-image>
+        <div class="paper-font-display2">Mario Rossi</div>
       </paper-toolbar>
       <div class="vertical layout center" style="padding: 12px;">
         <template is="dom-repeat" items="{{chapters}}">
           <a href="{{_computeLink(courseId, item.chapterId)}}">
-            <paper-card heading="{{item.name}}" image="{{item.image}}" style="width: 840px; height: 560px;"></paper-card>
+            <paper-card heading="{{item.name}}" image="/images/placeholder.jpg" style="width: 840px; height: 560px;"></paper-card>
           </a>
         </template>
       </div>
