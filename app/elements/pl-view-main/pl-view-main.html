@@ -1,0 +1,38 @@
+<dom-module id="pl-view-main">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      paper-material {
+        margin: 12px;
+      }
+    </style>
+
+    <paper-header-panel class="flex fit">
+      <paper-toolbar>
+        <div>Hello World!</div>
+      </paper-toolbar>
+      <div class="horizontal layout wrap" style="padding: 12px;">
+        <template is="dom-repeat" items="{{test}}">
+          <paper-material elevation="1" style="width: 420px; height: 280px;">
+            <p class="paper-font-body2">This is another card.</p>
+          </paper-material>
+        </template>
+      </div>
+    </paper-header-panel>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'pl-view-main',
+      properties: {
+        test: {
+          type: Array,
+          value: [1,2,3,4,5,6,7,8,9,0]
+        }
+      }
+    });
+  </script>
+</dom-module>
